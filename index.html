@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>שעשועון השין</title>
+<meta name="description" content="אימון יומי לאות ש: משפטים, הקלטה, משחקים וציור.">
+<meta name="theme-color" content="#E9EEFF">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="שעשועון השין">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Rubik:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="app" aria-live="polite"></div>
+
+  <!-- Drawing board (shared by sentence pictures and the mascot) -->
+  <div id="draw" class="draw" hidden>
+    <div class="draw-top">
+      <button class="btn small ghost" id="draw-cancel" type="button">✕ סגירה</button>
+      <p class="draw-title" id="draw-title"></p>
+      <button class="btn small go" id="draw-save" type="button">💾 שמירה</button>
+    </div>
+    <div class="draw-stage" id="draw-stage"><canvas id="canvas" width="1200" height="900"></canvas></div>
+    <div class="draw-tools">
+      <div class="swatches" id="swatches"></div>
+      <div class="tool-group" id="sizes"></div>
+      <div class="tool-group">
+        <button class="tool on" data-tool="pen" type="button" aria-label="מכחול">✏️</button>
+        <button class="tool" data-tool="fill" type="button" aria-label="דלי צבע">🪣</button>
+        <button class="tool" data-tool="eraser" type="button" aria-label="מחק">🧽</button>
+      </div>
+      <div class="tool-group">
+        <button class="tool" id="draw-undo" type="button" aria-label="ביטול">↩️</button>
+        <button class="tool" id="draw-clear" type="button" aria-label="ניקוי הדף">🗑️</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal" hidden></div>
+  <div id="toast" class="toast" hidden></div>
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
