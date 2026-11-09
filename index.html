@@ -25,6 +25,7 @@
   <div id="draw" class="draw" hidden>
     <div class="draw-top">
       <button class="btn small ghost" id="draw-cancel" type="button">✕ סגירה</button>
+      <button class="btn small" id="draw-hear" type="button" aria-label="לשמוע את המשפט" hidden>🔊</button>
       <p class="draw-title" id="draw-title"></p>
       <button class="btn small go" id="draw-save" type="button">💾 שמירה</button>
     </div>
@@ -44,11 +45,16 @@
     </div>
   </div>
 
+  <!-- The puppy that walks along the bottom and points at the next thing to do -->
+  <div id="pup-lane" class="pup-lane" hidden><div class="lane-pup" id="lane-pup" role="img" aria-label="הכלב"></div></div>
+
   <div id="modal" class="modal" hidden></div>
   <div id="toast" class="toast" hidden></div>
   <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
 
   <script src="data.js"></script>
+  <script src="cut.js"></script>
+  <script src="pup.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

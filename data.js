@@ -57,14 +57,65 @@ window.SHIN_DATA = {
     { sh: "שִׁין", s: "סִין", shE: "ש", sE: "🇨🇳" },
   ],
 
-  // Warm-up cards in front of the mirror.
+  // Warm-up cards in front of the mirror. m = the mouth the puppy shows meanwhile.
   warmup: [
-    { big: "😗", text: "שפתיים קדימה, כמו נשיקה לכלב.", sub: "מחזיקים 3 שניות ומרפים. עוד פעם!" },
-    { big: "🚂", text: "רכבת יוצאת לדרך: שששששששש", sub: "כמה זמן את מצליחה בלי לעצור?" },
-    { big: "🤫", text: "שוקו ישן! משתיקים אותו: ששש!", sub: "בשקט, ואז קצת יותר חזק." },
-    { big: "שָׁ", text: "שָׁ · שׁוֹ · שִׁי · שׁוּ · שֶׁ", sub: "כל הברה עם שפתיים של נשיקה." },
-    { big: "אִישׁ", text: "אָשׁ · אוֹשׁ · אִישׁ · אוּשׁ · אֶשׁ", sub: "עכשיו ה-ש בסוף." },
-    { big: "🐶", text: "שוקו · שעון · שמש · שוקולד", sub: "מילים שמתחילות ב-ש." },
+    { big: "😗", text: "שפתיים קדימה, כמו נשיקה לכלב.", sub: "מחזיקים 3 שניות ומרפים. עוד פעם!", m: "kiss" },
+    { big: "🚂", text: "רכבת יוצאת לדרך: שששששששש", sub: "כמה זמן את מצליחה בלי לעצור?", m: "shh" },
+    { big: "🤫", text: "שוקו ישן! משתיקים אותו: ששש!", sub: "בשקט, ואז קצת יותר חזק.", m: "shh" },
+    { big: "שָׁ", text: "שָׁ · שׁוֹ · שִׁי · שׁוּ · שֶׁ", sub: "כל הברה עם שפתיים של נשיקה.", m: "shh" },
+    { big: "אִישׁ", text: "אָשׁ · אוֹשׁ · אִישׁ · אוּשׁ · אֶשׁ", sub: "עכשיו ה-ש בסוף.", m: "shh" },
+    { big: "🐶", text: "שוקו · שעון · שמש · שוקולד", sub: "מילים שמתחילות ב-ש.", m: "happy" },
+  ],
+
+  // Treats she earns (one per sentence try, and a few other ways) and feeds the puppy.
+  // w = how often it drops, v = how much love it gives the puppy.
+  treats: [
+    { k: "bone", e: "🦴", w: 40, v: 1 },
+    { k: "cookie", e: "🍪", w: 25, v: 1 },
+    { k: "carrot", e: "🥕", w: 15, v: 1 },
+    { k: "cheese", e: "🧀", w: 12, v: 1 },
+    { k: "meat", e: "🍖", w: 8, v: 1 },
+    { k: "cupcake", e: "🧁", w: 0, v: 3 }, // only for reaching the daily minutes
+  ],
+
+  // Tricks. Every command has a ש: she says it out loud and the puppy does the trick.
+  tricks: [
+    { id: "sit", cmd: "שֵׁב!", e: "🐕" },
+    { id: "wave", cmd: "שָׁלוֹם!", e: "👋" },
+    { id: "down", cmd: "שְׁכַב!", e: "🛏️" },
+    { id: "kiss", cmd: "נְשִׁיקָה!", e: "😘" },
+    { id: "shh", cmd: "שֶׁקֶט!", e: "🤫" },
+    { id: "sing", cmd: "שִׁיר!", e: "🎵" },
+    { id: "tongue", cmd: "לָשׁוֹן!", e: "👅" },
+    { id: "roar", cmd: "שְׁאַג!", e: "🦁" },
+    { id: "sleep", cmd: "לִישׁוֹן!", e: "💤" },
+    { id: "sun", cmd: "שֶׁמֶשׁ!", e: "☀️" },
+  ],
+
+  // Dress-up items (drawn in pup.js). One item per slot.
+  accessories: [
+    { id: "bow", slot: "head", name: "פפיון", e: "🎀" },
+    { id: "glasses", slot: "face", name: "משקפי שמש", e: "🕶️" },
+    { id: "bandana", slot: "neck", name: "מטפחת", e: "🔻" },
+    { id: "crown", slot: "head", name: "כתר", e: "👑" },
+    { id: "partyhat", slot: "head", name: "כובע מסיבה", e: "🥳" },
+    { id: "flower", slot: "head", name: "פרח", e: "🌸" },
+    { id: "scarf", slot: "neck", name: "צעיף", e: "🧣" },
+    { id: "tophat", slot: "head", name: "מגבעת", e: "🎩" },
+    { id: "cape", slot: "back", name: "גלימה", e: "🦸" },
+  ],
+
+  // Fur and ear colours. The first baseColors are open from the start; the rest are prizes.
+  colors: ["#C8874D", "#6B4226", "#E9B85B", "#F4ECDD", "#9A9CAE", "#3E3B4F", "#F6A9C6", "#B9A2FF", "#8EC9FF", "#86DDBF"],
+  baseColors: 6,
+
+  // What the puppy gets at each new level (level 1 first). Feeding treats fills the level bar.
+  unlocks: [
+    ["acc", "bow"], ["trick", "wave"], ["acc", "glasses"], ["trick", "down"], ["color", "#F6A9C6"],
+    ["acc", "bandana"], ["trick", "kiss"], ["acc", "crown"], ["trick", "shh"], ["color", "#B9A2FF"],
+    ["acc", "partyhat"], ["trick", "sing"], ["acc", "flower"], ["trick", "tongue"], ["color", "#8EC9FF"],
+    ["acc", "scarf"], ["trick", "roar"], ["acc", "tophat"], ["trick", "sleep"], ["color", "#86DDBF"],
+    ["acc", "cape"], ["trick", "sun"],
   ],
 
   // Funny voices for repeating a sentence again and again.

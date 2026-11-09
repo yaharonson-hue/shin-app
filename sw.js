@@ -1,8 +1,8 @@
 // Offline support: app files are fetched fresh when online (so updates arrive) and served
 // from the cache when offline. Google Fonts are cached after the first load.
-const CACHE = 'shin-app-v1';
+const CACHE = 'shin-app-v2';
 const ASSETS = [
-  './', './index.html', './styles.css', './app.js', './data.js', './manifest.webmanifest',
+  './', './index.html', './styles.css', './app.js', './data.js', './cut.js', './pup.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png',
 ];
 
